@@ -10,16 +10,15 @@ A Python decoder for `.bun` document files created by **Matsu** (松) word proce
 
 ## 背景 / Background
 
-「松」は1983年から1990年代にかけてNEC PC-9801上で広く使われた日本語ワープロソフトです。
-当時の研究者・出版社・企業が作成した大量のデジタル文書が `.bun` 形式で残されており、
-現代の環境では読むことが困難になっています。
+「松」は1990年代ころNEC PC-9801などで広く使われた日本語ワープロソフトです。
+現代の環境ではなかなか読むことが困難になってます。。
 
 Matsu was a widely used Japanese word processor on NEC PC-9801 from 1983 through the 1990s.
 A large volume of documents created by researchers, publishers, and companies in that era
 survive as `.bun` files, but are now practically unreadable without special tools.
 
 既存のコンバータ（xdoc2txt, BUN2TX）はWindowsバイナリ専用またはソース非公開であり、
-クロスプラットフォームで動作するオープンなデコーダはこれまで存在しませんでした。
+クロスプラットフォームで動作するオープンなデコーダも見当たりませんでした。
 
 Existing converters (xdoc2txt, BUN2TX) are Windows-only binaries or closed-source,
 and no open cross-platform decoder existed for this format.
@@ -30,15 +29,15 @@ and no open cross-platform decoder existed for this format.
 
 ### 経緯
 
-このデコーダは、**宋代史を専門とする歴史学者**（青木敦、青山学院大学・東洋文庫）が
+このデコーダは、人文系研究者である私が
 1990年代に松ワープロで作成した自身の研究草稿 `.bun` ファイルを復元しようとしたことが
 きっかけで生まれました。
 
-著者はプログラミングの専門家ではありません。
-**ファイル形式の解析・デコーダの実装はすべて、Anthropic社の大規模言語モデル
-Claude（Opus 4.6）との対話を通じて行われました（2026年6月）。**
+著者はまったくプログラミングの専門家ではありませんので、
+**ファイル形式の解析・デコーダの実装はすべて、
+Claude（Opus 4.6）にお願いしてやってもらいました（2026年6月）。**
 
-具体的には：
+具体的には（受け売りですが）：
 
 1. `.bun` ファイルのヘキサダンプをClaudeに渡し、構造を推論させた
 2. Claudeが「バイトスワップされたJIS X 0208コード＋属性バイト」という構造を発見した
@@ -46,17 +45,16 @@ Claude（Opus 4.6）との対話を通じて行われました（2026年6月）�
    見つかり、Claudeの解析を検証・補完することができた
 4. 両者の照合により、「新松」と「松86/松5/松6」でフォーマットが異なることも判明した
 
-このプロジェクトは「AIを使ったデジタルアーカイブ復元」の一例でもあります。
+
 
 ### How it was made
 
-This decoder was created by **Atsushi Aoki** (Professor of East Asian History,
-Aoyama Gakuin University / The Oriental Library, Toyo Bunko), who needed to recover
+This decoder was created by **Atsushi Aoki** (Professor of Asia history at Aoyama Gakuin University), who needed to recover
 his own research manuscripts written in the 1990s on Matsu word processor.
 
 The author is not a programmer.
 **All file format analysis and decoder implementation were carried out through dialogue
-with Claude (Opus 4.6), a large language model by Anthropic, in June 2026.**
+with Claude (Opus 4.6), in June 2026.**
 
 The process:
 
@@ -108,10 +106,10 @@ print(text)
 
 | フォーマット | 対応 | 備考 |
 |-------------|------|------|
-| 松86 | ✅ | 本スクリプトの主対象 |
-| 松5 / 松6 | ✅ | 同一フォーマットと推定 |
-| 新松 (Shin-Matsu) | ❌ | BUN2TX（村井氏）を使用してください |
-| 松85以前 | ❌ | 未調査 |
+| 松86 | Yes | 本スクリプトの主対象 |
+| 松5 / 松6 | Yes | 同一フォーマットと推定 |
+| 新松 (Shin-Matsu) | No | BUN2TX（村井氏）を使用してください |
+| 松85以前 | No | 未調査 |
 
 ---
 
@@ -145,13 +143,13 @@ See [`REFERENCE.md`](REFERENCE.md) for full technical documentation.
 
 - **村井安雄氏 (Tomohide Muransky)**「BUN2TX.C」(1986, ver 0.80286)
   新松文書コンバータのソースコード。本プロジェクトの技術検証に不可欠でした。
-  氏のコードおよびコメントはPDSとして公開されています。
+  氏のコードおよびコメントはPDSとして公開されていますので、掲載させていただきました。
 
 - **showさん**「MTOT.C」
   BUN2TX.Cの原型。詳細不明ですが、このプロジェクトの遠い源流です。
 
 - **Anthropic / Claude Opus 4.6**
-  ファイル形式の解析・デコーダ実装・ドキュメント作成のすべてを担いました。
+  ファイル形式の解析・デコーダ実装・ドキュメント作成、すべてをお願いしました。
 
 - **Wikipedia「松（ワープロ）」**
   歴史的背景の確認に使用しました。
