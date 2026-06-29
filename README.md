@@ -11,7 +11,7 @@ A Python decoder for `.bun` document files created by **Matsu** (松) word proce
 ## 背景 / Background
 
 「松」は1990年代ころNEC PC-9801などで広く使われた日本語ワープロソフトです。
-現代の環境ではなかなか読むことが困難になってます。。
+現代ではなかなか読むことが困難になってます。
 
 Matsu was a widely used Japanese word processor on NEC PC-9801 from 1983 through the 1990s.
 A large volume of documents created by researchers, publishers, and companies in that era
@@ -30,10 +30,10 @@ and no open cross-platform decoder existed for this format.
 ### 経緯
 
 このデコーダは、人文系研究者である私が
-1990年代に松ワープロで作成した自身の研究草稿 `.bun` ファイルを復元しようとしたことが
+1990年代に松６で作成した自分の `.bun` ファイルの研究草稿を復元しようとしたことが
 きっかけで生まれました。
 
-著者はまったくプログラミングの専門家ではありませんので、
+私はまったくプログラミングの専門家ではありませんので、
 **ファイル形式の解析・デコーダの実装はすべて、
 Claude（Opus 4.6）にお願いしてやってもらいました（2026年6月）。**
 
@@ -149,10 +149,8 @@ See [`REFERENCE.md`](REFERENCE.md) for full technical documentation.
   BUN2TX.Cの原型。詳細不明ですが、このプロジェクトの遠い源流です。
 
 - **Anthropic / Claude Opus 4.6**
-  ファイル形式の解析・デコーダ実装・ドキュメント作成、すべてをお願いしました。
+  ファイル形式の解析・デコーダ実装、すべてをお願いしました。
 
-- **Wikipedia「松（ワープロ）」**
-  歴史的背景の確認に使用しました。
 
 ---
 
